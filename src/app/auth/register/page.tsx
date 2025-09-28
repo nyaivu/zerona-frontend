@@ -32,7 +32,7 @@ const RegisterPage: NextPage = () => {
         <div className="w-full flex flex-col items-center gap-4">
           {/* Submit button */}
           <button
-            className="bg-primary w-full text-background font-bold px-4 py-2 rounded-md"
+            className="cursor-pointer bg-primary w-full text-background font-bold px-4 py-2 rounded-md hover:bg-background hover:text-foreground transition-all outline-2 -outline-offset-2 outline-primary"
             type="submit"
           >
             Daftar sekarang
@@ -51,10 +51,7 @@ const RegisterPage: NextPage = () => {
             <span className="w-full h-[1px] bg-gray-400" />
           </div>
           {/* Google sign up button */}
-          <button
-            className="flex flex-row justify-center items-center gap-2  bg-white w-full text-foreground px-4 py-2 rounded-md outline-2 outline-gray-400"
-            type="submit"
-          >
+          <button className="cursor-pointer flex flex-row justify-center items-center gap-2  bg-white w-full text-foreground px-4 py-2 rounded-md outline-2 -outline-offset-2 outline-gray-400 transition-all hover:bg-gray-100">
             <Image
               src="/assets/google-g-logo.svg"
               alt="Google G Logo"
