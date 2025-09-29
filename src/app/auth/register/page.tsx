@@ -3,13 +3,13 @@ import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-const RegisterPage: NextPage = () => {
+const SignUpPage: NextPage = () => {
   return (
     <div className="md:grid grid-cols-2">
       <form className="min-h-screen flex flex-col items-center justify-center gap-4 px-8 md:px-32 bg-background rounded-r-2xl overflow-hidden">
         <h1 className="font-bold text-4xl">Daftar Akun</h1>
         <TextInput
-          name="nama-lengkap"
+          name="full-name"
           label="Nama lengkap"
           placeholder="Masukkan nama lengkap anda..."
         />
@@ -19,12 +19,14 @@ const RegisterPage: NextPage = () => {
           placeholder="Masukkan email anda..."
         />
         <TextInput
+          isPassword
           name="password"
           label="Password"
           placeholder="Masukkan password anda..."
         />
         <TextInput
-          name="konfirmasi-password"
+          isPassword
+          name="confirm-password"
           label="Konfirmasi password"
           placeholder="Konfirmasi ulang password anda..."
         />
@@ -76,4 +78,4 @@ const RegisterPage: NextPage = () => {
   );
 };
 
-export default RegisterPage;
+export default SignUpPage;
