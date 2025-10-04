@@ -1,8 +1,16 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import LoginForm from "@/components/LoginForm";
+import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
 
-const SignInPage: NextPage = () => {
+const SignInPage: NextPage = async () => {
+  const supabase = await createClient();
+
+  const { data, error } = await supabase.auth.getUser();
+  if (data?.user) {
+    redirect("/dashboard");
+  }
   return (
     <div className="md:grid grid-cols-2">
       <LoginForm />
