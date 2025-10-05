@@ -1,16 +1,15 @@
 "use client";
 
-import { signout } from "@/app/auth/actions";
 import { useSessionStore } from "@/stores/sessionStore";
 import Image from "next/image";
 
 const DashboardPage = () => {
-  const { accessToken } = useSessionStore();
+  const { clearSession } = useSessionStore();
 
   return (
     <div className="">
       {/* <p>Hello {accessToken}</p> */}
-      <button onClick={signout}>Logout</button>
+      <button onClick={() => clearSession()}>Logout</button>
       <Image
         className="object-cover aspect-square "
         src="/assets/auth-bg.png"

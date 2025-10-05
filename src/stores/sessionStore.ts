@@ -1,47 +1,51 @@
+// stores/sessionStore.ts
 import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware";
+import { persist } from "zustand/middleware";
 
-// 1. Define the state shape and actions
 interface SessionState {
+  isLoggedIn: boolean;
   accessToken: string | null;
   role: string | null;
-  isLoggedIn: boolean; // A derived/helper state for easier UI checks
-}
-
-interface SessionActions {
-  setSession: (data: { accessToken: string; role: string }) => void;
   clearSession: () => void;
+  setSession: (data: { accessToken: string; role: string }) => void;
+  // New state for tracking hydration
+  _hasHydrated: boolean;
+  setHasHydrated: (state: boolean) => void;
 }
 
-// 2. Define the initial state
-const initialState: SessionState = {
-  accessToken: null,
-  role: null,
-  isLoggedIn: false,
-};
-
-// 3. Create the store with persist middleware
-export const useSessionStore = create<SessionState & SessionActions>()(
+export const useSessionStore = create<SessionState>()(
   persist(
     (set) => ({
-      // Initial state
-      ...initialState,
+      isLoggedIn: false,
+      accessToken: null,
+      role: null,
+      _hasHydrated: false, // Initial state: NOT hydrated
 
-      // Action to set the session data after login
       setSession: (data) =>
         set({
+          isLoggedIn: true,
           accessToken: data.accessToken,
           role: data.role,
-          isLoggedIn: true,
         }),
 
-      // Action to clear the session data on logout
-      clearSession: () => set(initialState),
+      clearSession: () =>
+        set({
+          isLoggedIn: false,
+          accessToken: null,
+          role: null,
+        }),
+
+      setHasHydrated: (state) =>
+        set({
+          _hasHydrated: state,
+        }),
     }),
     {
-      // Configuration for the persist middleware
-      name: "user-session", // Unique name for the storage item
-      storage: createJSONStorage(() => localStorage), // Use localStorage
+      name: "session-storage", // key for localStorage
+      onRehydrateStorage: () => (state) => {
+        // This function runs after the data is pulled from storage
+        state?.setHasHydrated(true);
+      },
     }
   )
 );

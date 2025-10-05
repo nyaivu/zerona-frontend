@@ -6,18 +6,17 @@ import { useState } from "react";
 import Link from "next/link";
 
 const DashboardNavBar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="flex flex-row justify-between items-center px-2 sm:px-4 py-2 z-50 h-12 bg-background">
+    <nav className="flex flex-row justify-between items-center px-2 sm:px-4 py-2 z-50 bg-background">
       <div className="font-medium font-serif">
-        <p>KelasIn</p>
+        <Link href="/">
+          <p>KelasIn</p>
+        </Link>
       </div>
 
       <ul
-        style={{
-          transform: isOpen ? "scaleY(100%)" : "scaleY(0)",
-        }}
         className={`hidden origin-top w-full sm:flex flex-row items-center justify-end z-40 text-foreground gap-4 bg-background rounded-b-lg transition-all duration-300`}
       >
         <li>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda } from "next/font/google";
 import "./globals.css";
+import Providers from "@/components/Providers";
 
 const bodoniModa = Bodoni_Moda({
   variable: "--font-bodoni-moda",
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

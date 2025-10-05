@@ -1,19 +1,13 @@
+// app/auth/signin/page.tsx (or wherever your page is located)
 import { NextPage } from "next";
 import Image from "next/image";
-import LoginForm from "@/components/LoginForm";
-import { createClient } from "@/utils/supabase/server";
-import { redirect } from "next/navigation";
+import SignInForm from "@/components/LoginForm"; // Import the new Client Component
 
-const SignInPage: NextPage = async () => {
-  const supabase = await createClient();
-
-  const { data, error } = await supabase.auth.getUser();
-  if (data?.user) {
-    redirect("/dashboard");
-  }
+const SignInPage: NextPage = () => {
   return (
     <div className="md:grid grid-cols-2">
-      <LoginForm />
+      {/* RENDER THE CLIENT COMPONENT HERE */}
+      <SignInForm />
 
       <div className="hidden md:block w-auto h-screen -z-10 -ml-4">
         <Image

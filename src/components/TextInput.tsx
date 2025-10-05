@@ -15,7 +15,7 @@ const TextInput: React.FC<TextInputProps> = ({
   isPassword = false,
 }) => {
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className="flex flex-col gap-2 w-full sm:text-lg">
       <label htmlFor="nama-lengkap">{label}</label>
       <input
         type={isPassword ? "password" : "text"}
