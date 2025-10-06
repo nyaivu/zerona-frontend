@@ -6,7 +6,7 @@ const CreateCoursesPage = () => {
       // action={formAction}
       className="flex flex-col items-start justify-center gap-4 px-4 md:px-32 bg-background rounded-r-2xl overflow-hidden"
     >
-      <h1 className="font-bold text-4xl">Buat Course</h1>
+      <h1 className="font-bold text-4xl">Buat Kursus</h1>
 
       <TextInput name="title" label="Judul" placeholder="Masukkan judul..." />
       <TextInput
