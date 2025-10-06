@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Twirl as Hamburger } from "hamburger-react";
+import {Twirl as Hamburger} from 'hamburger-react';
 import { useState } from "react";
 import Link from "next/link";
 
