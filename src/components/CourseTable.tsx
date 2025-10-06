@@ -38,13 +38,10 @@ const columns = [
   columnHelper.display({
     id: "actions",
     header: "Aksi",
-    // 1. Accept the 'info' object (CellContext)
     cell: (info) => {
-      // 2. Access the original row object to get the 'id' property
       const courseId = info.row.original.id;
 
       return (
-        // 3. Use the courseId in the Link's href
         <Link
           href={`/dashboard/courses/${courseId}`}
           className="text-primary hover:underline"
@@ -57,20 +54,17 @@ const columns = [
 ];
 
 export function CourseTable() {
-  // 3. Data Fetching with TanStack Query
   const { data, isLoading, isError, error } = useQuery<Course[], Error>({
     queryKey: ["courses"],
     queryFn: fetchCourses,
   });
 
-  // 4. TanStack Table Initialization
   const table = useReactTable({
     data: data || [], // Use empty array while data is loading
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
 
-  // 5. Render States
   if (isLoading) {
     return <p className="p-4 text-center">Memuat data kursus...</p>;
   }

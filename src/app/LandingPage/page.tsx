@@ -5,17 +5,17 @@ import CourseList from "@/components/CourseList";
 import LDFAQSection from "@/components/LDSection";
 import LDFooter from "@/components/LDFooter";
 
-function App() {
-    return (
-        <div className="font-sans text-gray-800">
-            <LDNavbar />
-            <Hero />
-            <Features />
-            <CourseList />
-            <LDFAQSection />
-            <LDFooter />
-        </div>
-    );
+function LandingPage() {
+  return (
+    <div className="font-sans text-gray-800">
+      <LDNavbar />
+      <Hero />
+      <Features />
+      <CourseList />
+      <LDFAQSection />
+      <LDFooter />
+    </div>
+  );
 }
 
-export default App;
+export default LandingPage;

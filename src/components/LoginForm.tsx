@@ -114,21 +114,6 @@ export default function LoginForm() {
             Daftar sekarang
           </Link>
         </p>
-        <div className="w-full flex flex-row gap-2 items-center">
-          <span className="w-full h-[1px] bg-gray-400" />
-          <p className="text-gray-400">Or</p>
-          <span className="w-full h-[1px] bg-gray-400" />
-        </div>
-        {/* Google sign up button */}
-        <button className="cursor-pointer flex flex-row justify-center items-center gap-2  bg-white w-full text-foreground px-4 py-2 rounded-md outline-2 -outline-offset-2 outline-gray-400 transition-all hover:bg-gray-100">
-          <Image
-            src="/assets/google-g-logo.svg"
-            alt="Google G Logo"
-            width={24}
-            height={24}
-          />
-          Masuk dengan Google
-        </button>
       </div>
     </form>
   );
