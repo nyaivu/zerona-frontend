@@ -1,11 +1,20 @@
 "use client";
 
 import Link from "next/link";
-
-import { Course, fetchCourses } from "@/interfaces/courses"; // Adjust path as necessary
+import { Course, fetchCourses } from "@/interfaces/courses";
 import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
+// No longer need to import Image from "next/image"
 import { useSessionStore } from "@/stores/sessionStore";
+
+// Helper function to generate a random hex color
+const getRandomColor = () => {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
 
 const CoursesGrid = () => {
   const role = useSessionStore((state) => state.role);
@@ -45,16 +54,18 @@ const CoursesGrid = () => {
             href={`/dashboard/courses/${course.id}`}
             className="w-full flex flex-col items-start outline outline-gray-500 rounded-md"
           >
-            <Image
-              className="w-full max-h-32 object-cover"
-              src="https://picsum.photos/400/300"
-              alt="Course photo"
-              width={200}
-              height={150}
-            />
+            {/* Replaced Image with a div with random background color */}
+            <div
+              className="w-full h-32 flex items-center justify-center text-white text-2xl font-bold rounded-t-md"
+              style={{ backgroundColor: getRandomColor() }} // Apply random color
+            >
+              {/* Optional: You can put a short title or an icon here */}
+              {course.title.slice(0, 2)}
+            </div>
             <span className="px-4 py-2">
               <h2 className="font-medium text-xl">{course.title}</h2>
-              <p className="text-center">{course.description}</p>
+              <p className="text-sm text-gray-600">{course.description}</p>{" "}
+              {/* Changed text-center to text-sm and added text-gray-600 */}
             </span>
           </Link>
         ))}

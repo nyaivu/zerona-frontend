@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Twirl as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import Link from "next/link";
@@ -11,7 +10,7 @@ const DashboardNavBar = () => {
   const { clearSession } = useSessionStore();
 
   return (
-    <nav className="sticky top-0 inset-x-0 flex flex-row justify-between items-center px-2 sm:px-4 py-2 z-50 bg-background">
+    <nav className="sticky top-0 inset-x-0 flex flex-row justify-between items-center px-4 py-2 z-50 bg-background">
       <div className="font-medium font-serif">
         <Link href="/">
           <p>KelasIn</p>
@@ -67,21 +66,6 @@ const DashboardNavBar = () => {
         }}
         className={`fixed inset-x-0 top-12 h-auto sm:hidden sm:h-0 origin-top w-full flex flex-col items-start justify-center z-40 text-lg text-foreground gap-2 p-4 bg-background rounded-b-lg transition-all duration-300`}
       >
-        <li className="w-full">
-          <Link
-            className="w-full flex flex-row items-center gap-2"
-            href="/profile"
-          >
-            <Image
-              className="w-auto h-6 object-cover aspect-square rounded-full"
-              src="/assets/auth-bg.png"
-              width={150}
-              height={150}
-              alt="Profile Photo"
-            />
-            <p>Profile</p>
-          </Link>
-        </li>
         <li className="w-full">
           <Link
             className="w-full flex flex-row items-center gap-2"
@@ -148,6 +132,29 @@ const DashboardNavBar = () => {
             </svg>
 
             <p>Murid</p>
+          </Link>
+        </li>
+        <li className="w-full">
+          <Link
+            className="w-full flex flex-row items-center gap-2"
+            href="/profile"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15"
+              />
+            </svg>
+
+            <button onClick={() => clearSession()}>Logout</button>
           </Link>
         </li>
       </ul>
