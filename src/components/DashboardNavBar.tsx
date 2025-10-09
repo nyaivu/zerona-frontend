@@ -4,9 +4,11 @@ import Image from "next/image";
 import { Twirl as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import Link from "next/link";
+import { useSessionStore } from "@/stores/sessionStore";
 
 const DashboardNavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { clearSession } = useSessionStore();
 
   return (
     <nav className="sticky top-0 inset-x-0 flex flex-row justify-between items-center px-2 sm:px-4 py-2 z-50 bg-background">
@@ -44,18 +46,7 @@ const DashboardNavBar = () => {
           </Link>
         </li>
         <li>
-          <Link
-            className="w-full flex flex-row items-center gap-2"
-            href="/profile"
-          >
-            <Image
-              className="w-auto h-6 object-cover aspect-square rounded-full"
-              src="/assets/auth-bg.png"
-              width={150}
-              height={150}
-              alt="Profile Photo"
-            />
-          </Link>
+          <button onClick={() => clearSession()}>Logout</button>
         </li>
       </ul>
 

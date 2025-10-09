@@ -82,6 +82,7 @@ export function EnrollmentButton({
     <div>
       {initialIsEnrolled ? (
         <button
+          type="button"
           onClick={() => unenrollMutation.mutate(courseId)}
           disabled={isLoading}
           className="w-full bg-red-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700 transition-colors disabled:bg-gray-400"
@@ -92,6 +93,7 @@ export function EnrollmentButton({
         </button>
       ) : (
         <button
+          type="button"
           onClick={() => enrollMutation.mutate(courseId)}
           disabled={isLoading}
           className="w-full bg-green-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400"
