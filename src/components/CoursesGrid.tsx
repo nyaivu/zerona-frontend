@@ -24,7 +24,7 @@ const CoursesGrid = () => {
 
   return (
     <section className="flex flex-col gap-4 p-4">
-      <h2 className="font-bold text-3xl">Kursus</h2>
+      <h2 className="font-bold text-3xl">Semua Kursus</h2>
       <div className="flex flex-col items-center md:grid grid-cols-4 grid-flow-row gap-4">
         {data?.map((course) => (
           <Link

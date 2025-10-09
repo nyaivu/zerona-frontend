@@ -18,6 +18,8 @@ interface LessonFormData {
 
 export function CourseLessons({ courseId }: CourseLessonsProps) {
   // TanStack Query to fetch the single course
+  const { role } = useSessionStore();
+  const isGuru = role === "guru";
   const {
     data: lessons,
     isLoading,
@@ -57,7 +59,7 @@ export function CourseLessons({ courseId }: CourseLessonsProps) {
     <div className="p-8 bg-white shadow-xl rounded-lg max-w-4xl mx-auto">
       <h2 className="text-2xl font-bold text-gray-800 mb-2">Pelajaran</h2>
 
-      <AddLessonForm refetch={refetch} courseId={courseId} />
+      {isGuru && <AddLessonForm refetch={refetch} courseId={courseId} />}
 
       {lessons.map((lesson) => (
         <div key={lesson.id} className="">
