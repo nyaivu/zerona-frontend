@@ -6,13 +6,21 @@ import { useQuery } from "@tanstack/react-query";
 // No longer need to import Image from "next/image"
 import { useSessionStore } from "@/stores/sessionStore";
 
-// Helper function to generate a random hex color
-const getRandomColor = () => {
-  const letters = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
+// Helper function to generate a consistent color from a string
+const stringToColor = (str: string) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    // A simple hashing algorithm
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
   }
+
+  let color = "#";
+  for (let i = 0; i < 3; i++) {
+    const value = (hash >> (i * 8)) & 0xff;
+    // Ensure the hex value is always two digits
+    color += ("00" + value.toString(16)).substr(-2);
+  }
+
   return color;
 };
 
@@ -57,7 +65,7 @@ const CoursesGrid = () => {
             {/* Replaced Image with a div with random background color */}
             <div
               className="w-full h-32 flex items-center justify-center text-white text-2xl font-bold rounded-t-md"
-              style={{ backgroundColor: getRandomColor() }} // Apply random color
+              style={{ backgroundColor: stringToColor(course.title) }} // Apply random color
             >
               {/* Optional: You can put a short title or an icon here */}
               {course.title.slice(0, 2)}
