@@ -238,11 +238,13 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
             </button>
           </div>
         ) : (
-          <EnrollmentButton
-            courseId={course.id}
-            initialIsEnrolled={isEnrolled ?? false}
-            isCheckingEnrollment={isEnrollmentLoading}
-          />
+          role !== "guru" && (
+            <EnrollmentButton
+              courseId={course.id}
+              initialIsEnrolled={isEnrolled ?? false}
+              isCheckingEnrollment={isEnrollmentLoading}
+            />
+          )
         )}
       </div>
     </form>

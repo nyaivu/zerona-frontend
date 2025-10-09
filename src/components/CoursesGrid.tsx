@@ -24,7 +24,15 @@ const CoursesGrid = () => {
 
   return (
     <section className="flex flex-col gap-4 p-4">
-      <h2 className="font-bold text-3xl">Semua Kursus</h2>
+      <div className="flex flex-row justify-between">
+        <h2 className="font-bold text-3xl">Semua Kursus</h2>
+        <Link
+          className="flex items-center cursor-pointer bg-primary text-background font-bold px-4 py-2 rounded-md hover:bg-background hover:text-foreground transition-all outline-2 -outline-offset-2 outline-primary disabled:opacity-50"
+          href="/dashboard/courses"
+        >
+          Kelola Kursus
+        </Link>
+      </div>
       <div className="flex flex-col items-center md:grid grid-cols-4 grid-flow-row gap-4">
         {data?.map((course) => (
           <Link

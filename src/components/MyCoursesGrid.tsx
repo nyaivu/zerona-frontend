@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 
-import { Course, fetchCourses } from "@/interfaces/courses"; // Adjust path as necessary
+import { Course, fetchMyCourses } from "@/interfaces/courses"; // Adjust path as necessary
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
-const CoursesGrid = () => {
+const MyCoursesGrid = () => {
   const { data, isLoading, isError, error } = useQuery<Course[], Error>({
-    queryKey: ["courses"],
-    queryFn: fetchCourses,
+    queryKey: ["myCourses"],
+    queryFn: fetchMyCourses,
   });
 
   if (isLoading) {
@@ -24,7 +24,7 @@ const CoursesGrid = () => {
 
   return (
     <section className="flex flex-col gap-4 p-4">
-      <h2 className="font-bold text-3xl">Semua Kursus</h2>
+      <h2 className="font-bold text-3xl">Kursus Anda</h2>
       <div className="flex flex-col items-center md:grid grid-cols-4 grid-flow-row gap-4">
         {data?.map((course) => (
           <Link
@@ -50,4 +50,4 @@ const CoursesGrid = () => {
   );
 };
 
-export default CoursesGrid;
+export default MyCoursesGrid;

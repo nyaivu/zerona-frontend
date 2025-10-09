@@ -40,6 +40,7 @@ export function EnrollmentButton({
   initialIsEnrolled,
   isCheckingEnrollment,
 }: EnrollmentButtonProps) {
+  const { role } = useSessionStore.getState();
   const queryClient = useQueryClient();
 
   // Mutation for enrolling in a course
@@ -72,6 +73,10 @@ export function EnrollmentButton({
     isCheckingEnrollment ||
     enrollMutation.isPending ||
     unenrollMutation.isPending;
+
+  if (role === "guru") {
+    return null;
+  }
 
   return (
     <div>

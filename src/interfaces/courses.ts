@@ -29,6 +29,17 @@ export interface MyCoursesResponse {
   courses: Course[];
 }
 
+// Define the shape of the full API response
+export interface MyCoursesResponse {
+  courses: Course[];
+  // include other properties from the response if needed
+  user: {
+    id: number;
+    name: string;
+  };
+  source: string;
+}
+
 export const fetchCourses = async (): Promise<Course[]> => {
   // 1. Get the current state of the store (accessing it outside a component)
   //    We use the "get" method provided by Zustand to grab state outside a hook.
@@ -50,26 +61,21 @@ export const fetchCourses = async (): Promise<Course[]> => {
 
   return response.data;
 };
+
+// Corrected fetchMyCourses function
 export const fetchMyCourses = async (): Promise<Course[]> => {
-  // 1. Get the current state of the store (accessing it outside a component)
-  //    We use the "get" method provided by Zustand to grab state outside a hook.
   const { accessToken } = useSessionStore.getState();
 
-  // 2. Check if the token exists
-  if (!accessToken) {
-    // If the token is missing, throw an error or handle it as unauthorized
-    throw new Error("Authentication token is missing. Please log in.");
-  }
-
-  // 3. Make the API call with the Authorization header
-  const response = await axiosInstance.get<Course[]>("/courses", {
+  // 1. Tell Axios to expect the MyCoursesResponse object
+  const { data } = await axiosInstance.get<MyCoursesResponse>("/mycourses", {
+    // Assuming endpoint is /mycourses
     headers: {
-      // Standard format for JWTs: "Bearer <token>"
       Authorization: `Bearer ${accessToken}`,
     },
   });
 
-  return response.data;
+  // 2. Return the nested 'courses' array from the response object
+  return data.courses;
 };
 
 export const fetchCourseDetail = async (courseId: number): Promise<Course> => {

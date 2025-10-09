@@ -1,8 +1,8 @@
 "use client";
 
 import CoursesGrid from "@/components/CoursesGrid";
+import MyCoursesGrid from "@/components/MyCoursesGrid";
 import { useSessionStore } from "@/stores/sessionStore";
-import Link from "next/link";
 
 const DashboardPage = () => {
   const { clearSession, role } = useSessionStore();
@@ -17,6 +17,7 @@ const DashboardPage = () => {
       </section>
 
       <CoursesGrid />
+      <MyCoursesGrid />
     </div>
   );
 };
