@@ -20,7 +20,37 @@ export interface Lesson {
   updated_at: string;
 }
 
+export interface MyCoursesResponse {
+  user: {
+    id: number;
+    name: string;
+  };
+  source: string;
+  courses: Course[];
+}
+
 export const fetchCourses = async (): Promise<Course[]> => {
+  // 1. Get the current state of the store (accessing it outside a component)
+  //    We use the "get" method provided by Zustand to grab state outside a hook.
+  const { accessToken } = useSessionStore.getState();
+
+  // 2. Check if the token exists
+  if (!accessToken) {
+    // If the token is missing, throw an error or handle it as unauthorized
+    throw new Error("Authentication token is missing. Please log in.");
+  }
+
+  // 3. Make the API call with the Authorization header
+  const response = await axiosInstance.get<Course[]>("/courses", {
+    headers: {
+      // Standard format for JWTs: "Bearer <token>"
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  return response.data;
+};
+export const fetchMyCourses = async (): Promise<Course[]> => {
   // 1. Get the current state of the store (accessing it outside a component)
   //    We use the "get" method provided by Zustand to grab state outside a hook.
   const { accessToken } = useSessionStore.getState();

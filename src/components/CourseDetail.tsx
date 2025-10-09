@@ -3,27 +3,32 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { fetchCourseDetail } from "@/interfaces/courses"; // Adjust path
+import { useIsEnrolled } from "@/hooks/UseIsEnrolled";
+import { EnrollmentButton } from "./EnrollmentButton";
 
 interface CourseDetailProps {
   courseId: number; // The ID passed from the URL/Server Component
 }
 
 export function CourseDetail({ courseId }: CourseDetailProps) {
-  // TanStack Query to fetch the single course
+  // Query to fetch the course details
   const {
     data: course,
-    isLoading,
+    isLoading: isCourseLoading,
     isError,
     error,
   } = useQuery({
-    // The queryKey must include the dynamic ID to ensure refetching when the ID changes
     queryKey: ["course", courseId],
     queryFn: () => fetchCourseDetail(courseId),
-    // Ensure the query is disabled if the courseId is invalid (e.g., 0)
-    enabled: courseId > 0,
+    enabled: !!courseId,
   });
 
-  if (isLoading) {
+  // Query to check if the user is enrolled
+  const { data: isEnrolled, isLoading: isEnrollmentLoading } =
+    useIsEnrolled(courseId);
+
+  // Display a loading message while either query is running
+  if (isCourseLoading || isEnrollmentLoading) {
     return <div className="p-8 text-center">Memuat detail kursus...</div>;
   }
 
@@ -69,12 +74,14 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
 
       <div className="flex justify-between items-center text-sm text-gray-500 pt-4 border-t">
         <span>Pengajar ID: {course.user_id}</span>
-        <button
-          onClick={() => alert(`Navigasi ke halaman edit kursus ${course.id}`)}
-          className="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
-        >
-          Edit Kursus
-        </button>
+        {/* --- NEW: Enrollment Button Section --- */}
+      </div>
+      <div className="mt-8 pt-6 border-t">
+        <EnrollmentButton
+          courseId={course.id}
+          initialIsEnrolled={isEnrolled ?? false}
+          isCheckingEnrollment={isEnrollmentLoading}
+        />
       </div>
     </div>
   );
