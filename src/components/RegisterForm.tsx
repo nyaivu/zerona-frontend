@@ -2,7 +2,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useMutation } from "@tanstack/react-query";
 import TextInput from "@/components/TextInput";

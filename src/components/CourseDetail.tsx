@@ -57,8 +57,15 @@ export function CourseDetail({ courseId }: CourseDetailProps) {
         ID Kursus: {course.id} | Dibuat pada: {createdAtDate}
       </p>
 
-      <h2 className="text-2xl font-semibold text-gray-700 mb-2">Deskripsi</h2>
-      <p className="text-gray-700 mb-8 leading-relaxed">{course.description}</p>
+      {/* Deskripsi Section */}
+      <section>
+        <h2 className="text-2xl font-semibold text-gray-700 mb-2">Deskripsi</h2>
+        <p className="text-gray-700 mb-8 leading-relaxed">
+          {course.description}
+        </p>
+      </section>
+
+      {/* Lessons */}
 
       <div className="flex justify-between items-center text-sm text-gray-500 pt-4 border-t">
         <span>Pengajar ID: {course.user_id}</span>

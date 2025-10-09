@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {Twirl as Hamburger} from 'hamburger-react';
+import { Twirl as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -9,7 +9,7 @@ const DashboardNavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="flex flex-row justify-between items-center px-2 sm:px-4 py-2 z-50 bg-background">
+    <nav className="sticky top-0 inset-x-0 flex flex-row justify-between items-center px-2 sm:px-4 py-2 z-50 bg-background">
       <div className="font-medium font-serif">
         <Link href="/">
           <p>KelasIn</p>

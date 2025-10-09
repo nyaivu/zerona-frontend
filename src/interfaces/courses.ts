@@ -11,6 +11,15 @@ export interface Course {
   updated_at: string; // Add new fields
 }
 
+export interface Lesson {
+  id: number;
+  course_id: number;
+  title: string;
+  content: string;
+  created_at: string;
+  updated_at: string;
+}
+
 export const fetchCourses = async (): Promise<Course[]> => {
   // 1. Get the current state of the store (accessing it outside a component)
   //    We use the "get" method provided by Zustand to grab state outside a hook.
@@ -47,6 +56,29 @@ export const fetchCourseDetail = async (courseId: number): Promise<Course> => {
       Authorization: `Bearer ${accessToken}`,
     },
   });
+
+  return response.data;
+};
+
+export const fetchCourseLessons = async (
+  courseId: number
+): Promise<Lesson[]> => {
+  // 1. Get the current state of the store
+  const { accessToken } = useSessionStore.getState();
+
+  if (!accessToken) {
+    throw new Error("Authentication token is missing. Please log in.");
+  }
+
+  // 2. Fetch the specific course using the ID
+  const response = await axiosInstance.get<Lesson[]>(
+    `/courses/${courseId}/lessons`,
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
 
   return response.data;
 };

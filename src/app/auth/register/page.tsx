@@ -1,7 +1,6 @@
 // pages/auth/signup/page.tsx (or wherever your page is located)
 import { NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
 // Import the new Client Component
 import SignUpForm from "@/components/RegisterForm";
 import React from "react";
