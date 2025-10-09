@@ -1,10 +1,10 @@
 export default function Hero() {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between px-8 md:px-16 py-16 bg-gray-50">
+    <section className="flex flex-col md:flex-row items-center justify-between px-8 md:px-16 py-16 bg-gray-50" id="home">
       <div className="max-w-lg space-y-6">
         <h2 className="text-3xl md:text-4xl font-bold leading-tight">
           Selamat datang di <br />{" "}
-          <span className="text-blue-700">KelasIn</span>
+          <span className="text-primary">KelasIn</span>
         </h2>
         <p className="text-gray-600">
           KelasIn merupakan sistem pendukung dalam pengelolaan pembelajaran

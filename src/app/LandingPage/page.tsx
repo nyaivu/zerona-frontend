@@ -7,7 +7,7 @@ import LDFooter from "@/components/LDFooter";
 
 function LandingPage() {
   return (
-    <div className="font-sans text-gray-800">
+    <div className="font-sans text-gray-800 ">
       <LDNavbar />
       <Hero />
       <Features />

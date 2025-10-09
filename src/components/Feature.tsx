@@ -18,7 +18,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="px-8 md:px-16 py-16 bg-white">
+    <section className="px-8 md:px-16 py-16 bg-white" id="features">
       <div className="grid md:grid-cols-3 gap-8 text-center">
         {features.map((f) => (
           <div key={f.title} className="p-6 rounded-xl cursor-pointer shadow hover:shadow-md transition">
