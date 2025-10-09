@@ -40,6 +40,39 @@ export interface MyCoursesResponse {
   source: string;
 }
 
+export interface FeedbackUser {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  role: string;
+}
+
+export interface Feedback {
+  id: number;
+  content: string;
+  created_at: string;
+  user: FeedbackUser;
+}
+
+// --- 2. Create the data-fetching function ---
+export const fetchCourseFeedbacks = async (
+  courseId: number
+): Promise<Feedback[]> => {
+  const { accessToken } = useSessionStore.getState();
+
+  const response = await axiosInstance.get<Feedback[]>(
+    `/courses/${courseId}/feedbacks`,
+    {
+      headers: {
+        // Standard format for JWTs: "Bearer <token>"
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
+  return response.data;
+};
+
 export const fetchCourses = async (): Promise<Course[]> => {
   // 1. Get the current state of the store (accessing it outside a component)
   //    We use the "get" method provided by Zustand to grab state outside a hook.

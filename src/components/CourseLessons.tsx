@@ -130,7 +130,7 @@ const AddLessonForm = ({ courseId, refetch }: AddLessonFormProps) => {
         placeholder="Masukkan judul..."
       />
       <div className="flex flex-col gap-2 w-full sm:text-lg">
-        <label htmlFor="nama-lengkap">Konten Pelajaran</label>
+        <label htmlFor="content">Konten Pelajaran</label>
         <textarea
           name="content"
           id="content"
@@ -142,7 +142,7 @@ const AddLessonForm = ({ courseId, refetch }: AddLessonFormProps) => {
         type="submit"
         disabled={mutation.isPending} // Disable while loading
       >
-        {mutation.isPending ? "Memproses..." : "Tambahkan pelajaran"}
+        {mutation.isPending ? "Memproses..." : "Tambahkan Pelajaran"}
       </button>
     </form>
   );

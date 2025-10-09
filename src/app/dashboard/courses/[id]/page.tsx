@@ -1,4 +1,5 @@
 import { CourseDetail } from "@/components/CourseDetail";
+import { CourseFeedbacks } from "@/components/CourseFeedbacks";
 import { CourseLessons } from "@/components/CourseLessons";
 
 interface CourseDetailPageProps {
@@ -21,6 +22,7 @@ export default async function CourseDetailPage({
     <main className="min-h-screen bg-gray-100 py-12">
       <CourseDetail courseId={courseId} />
       <CourseLessons courseId={courseId} />
+      <CourseFeedbacks courseId={courseId} />
     </main>
   );
 }
