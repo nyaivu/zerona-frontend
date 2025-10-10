@@ -90,9 +90,3 @@ Untuk menjalankan proyek ini di lingkungan lokal Anda, ikuti langkah-langkah ber
 ## Kontribusi
 
 Kami sangat terbuka untuk kontribusi dari komunitas. Jika Anda ingin berkontribusi, silakan *fork* repositori ini, buat *branch* baru untuk perubahan Anda, dan kirimkan *pull request*. Pastikan untuk menjelaskan perubahan yang Anda buat secara detail.
-
------
-
-## Lisensi
-
-Proyek ini dilisensikan di bawah [Jenis Lisensi, misalnya: Lisensi MIT]. Lihat file `LICENSE` untuk detail lebih lanjut.
