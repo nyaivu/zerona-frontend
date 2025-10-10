@@ -61,8 +61,8 @@ export default function SignUpForm() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const fullName = formData.get("full-name") as string;
-    const [first_name, ...last_name_parts] = fullName.split(" ");
+    const firstName = formData.get("first_name") as string;
+    const lastName = formData.get("last_name") as string;
 
     // Simple validation for password match (client-side)
     const password = formData.get("password") as string;
@@ -75,8 +75,8 @@ export default function SignUpForm() {
 
     // Construct the payload matching the required body structure
     const payload: RegisterFormData = {
-      first_name: first_name || "",
-      last_name: last_name_parts.join(" ") || "",
+      first_name: firstName,
+      last_name: lastName,
       email: formData.get("email") as string,
       password: password,
       role: selectedRole,
@@ -122,9 +122,14 @@ export default function SignUpForm() {
         </select>
       </div>
       <TextInput
-        name="full-name"
-        label="Nama lengkap"
-        placeholder="Masukkan nama lengkap anda..."
+        name="first_name"
+        label="Nama pertama"
+        placeholder="Masukkan nama pertama anda..."
+      />
+      <TextInput
+        name="last_name"
+        label="Nama terakhir"
+        placeholder="Masukkan nama terakhir anda..."
       />
       <TextInput
         name="email"
