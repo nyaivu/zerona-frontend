@@ -28,7 +28,7 @@ export default function LDFooter() {
               Panduan Elearning
             </li>
             <li className="hover:text-blue-300 cursor-pointer transition">
-              Daftar Matakuliah
+              Daftar Kelas
             </li>
             <li className="hover:text-blue-300 cursor-pointer transition">
               Laporan Error Sistem

@@ -165,6 +165,9 @@ export default function SignUpForm() {
           <Link href="/auth/login" className="text-primary underline">
             Masuk di sini
           </Link>
+          <Link href="/" className="text-primary underline ml-2">
+            Kembali?
+          </Link>
         </p>
       </div>
     </form>

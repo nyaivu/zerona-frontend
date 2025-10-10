@@ -10,6 +10,7 @@ import { axiosInstance } from "@/utils/axios"; // Assuming this is client-side r
 import { useSessionStore } from "@/stores/sessionStore";
 import { useRouter } from "next/navigation";
 
+
 // Define the type for the form data
 interface LoginFormData {
   email: string;
@@ -74,10 +75,16 @@ export default function LoginForm() {
   };
 
   return (
+    
+ 
+
     <form
       onSubmit={handleSubmit}
       className="min-h-screen flex flex-col items-center justify-center gap-4 px-8 md:px-32 bg-background rounded-r-2xl overflow-hidden"
     >
+
+
+
       <h1 className="font-bold text-4xl">Masuk</h1>
       {/* Show loading state or error message */}
       {mutation.isPending && <p className="text-blue-500">Logging in...</p>}
@@ -97,7 +104,7 @@ export default function LoginForm() {
         placeholder="Masukkan password anda..."
       />
 
-      <div className="w-full flex flex-col items-center gap-4">
+      <div className="w-full flex flex-col items-center gap-6">
         {/* Submit button */}
         <button
           type="submit"
@@ -113,8 +120,13 @@ export default function LoginForm() {
           <Link href="/auth/register" className="text-primary underline">
             Daftar sekarang
           </Link>
+
+          <Link href="/" className="text-primary underline ml-2">
+            Kembali?
+          </Link>
         </p>
       </div>
     </form>
+  
   );
 }

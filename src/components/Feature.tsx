@@ -13,9 +13,9 @@ const features = [
     icon: "⚙️",
   },
   {
-    title: "Hypercontent",
-    desc: "Tersedia berbagai format course dan konten multimedia interaktif dalam satu platform.",
-    icon: "📚",
+    title: "Selalu Up-to-date",
+    desc: "Materi terus diperbarui agar sesuai dengan perkembangan teknologi dan kebutuhan industri.",
+    icon: "🚀",
   },
 ];
 
