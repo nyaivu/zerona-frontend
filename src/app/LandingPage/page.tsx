@@ -4,6 +4,7 @@ import Features from "@/components/Feature";
 import CourseList from "@/components/CourseList";
 import LDFAQSection from "@/components/LDSection";
 import LDFooter from "@/components/LDFooter";
+import LDAbout from "@/components/LDAbout"
 
 function LandingPage() {
   return (
@@ -11,6 +12,7 @@ function LandingPage() {
       <LDNavbar />
       <Hero />
       <Features />
+      <LDAbout />
       <CourseList />
       <LDFAQSection />
       <LDFooter />

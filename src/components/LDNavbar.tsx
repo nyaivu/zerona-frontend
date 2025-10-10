@@ -1,39 +1,48 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; 
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function LDNavbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navItems = [
+    { href: "#home", label: "Beranda" },
+    { href: "#about", label: "Tentang" },
+    { href: "#guide", label: "Panduan" },
+    { href: "#courses", label: "Kelas" },
+  ];
+
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="flex items-center justify-between px-6 py-4">
+    <motion.nav
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="sticky top-0 z-50 bg-white shadow-sm backdrop-blur-md bg-opacity-90"
+    >
+      <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
         {/* Logo */}
-        <h1 className="font-bold text-lg text-primary">KelasIn</h1>
+        <motion.h1
+          whileHover={{ scale: 1.05 }}
+          className="font-bold text-lg text-primary cursor-pointer"
+        >
+          KelasIn
+        </motion.h1>
 
         {/* Menu desktop */}
         <ul className="hidden md:flex space-x-6">
-          <li>
-            <a href="#home" className="hover:text-primary">
-              Beranda
-            </a>
-          </li>
-          <li>
-            <a href="#about" className="hover:text-primary">
-              Tentang
-            </a>
-          </li>
-          <li>
-            <a href="#guide" className="hover:text-primary">
-              Panduan
-            </a>
-          </li>
-          <li>
-            <a href="#courses" className="hover:text-primary">
-              Kelas
-            </a>
-          </li>
+          {navItems.map((item, i) => (
+            <motion.li
+              key={i}
+              whileHover={{ scale: 1.1, color: "#2563eb" }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <a href={item.href} className="hover:text-primary transition">
+                {item.label}
+              </a>
+            </motion.li>
+          ))}
         </ul>
 
         {/* Tombol login/sign up (desktop) */}
@@ -61,39 +70,49 @@ export default function LDNavbar() {
         </button>
       </div>
 
-      {/* Menu mobile */}
-      {isOpen && (
-        <div className="md:hidden flex flex-col items-center space-y-4 pb-4 bg-white shadow-inner">
-          <a href="#home" className="hover:text-primary" onClick={() => setIsOpen(false)}>
-            Beranda
-          </a>
-          <a href="#about" className="hover:text-primary" onClick={() => setIsOpen(false)}>
-            Tentang
-          </a>
-          <a href="#guide" className="hover:text-primary" onClick={() => setIsOpen(false)}>
-            Panduan
-          </a>
-          <a href="#courses" className="hover:text-primary" onClick={() => setIsOpen(false)}>
-            Kelas
-          </a>
-          <div className="flex space-x-3">
-            <Link
-              href="/auth/login"
-              className="border border-primary text-primary px-4 py-1.5 rounded-lg hover:bg-primary hover:text-white transition"
-              onClick={() => setIsOpen(false)}
-            >
-              Log in
-            </Link>
-            <Link
-              href="/auth/register"
-              className="border border-primary text-primary px-4 py-1.5 rounded-lg hover:bg-primary hover:text-white transition"
-              onClick={() => setIsOpen(false)}
-            >
-              Sign up
-            </Link>
-          </div>
-        </div>
-      )}
-    </nav>
+      {/* Menu mobile dengan animasi */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden flex flex-col items-center space-y-4 pb-4 bg-white shadow-inner"
+          >
+            {navItems.map((item, i) => (
+              <motion.a
+                key={i}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                whileHover={{ scale: 1.1, color: "#2563eb" }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="hover:text-primary transition"
+              >
+                {item.label}
+              </motion.a>
+            ))}
+
+            <div className="flex space-x-3">
+              <Link
+                href="/auth/login"
+                className="border border-primary text-primary px-4 py-1.5 rounded-lg hover:bg-primary hover:text-white transition"
+                onClick={() => setIsOpen(false)}
+              >
+                Log in
+              </Link>
+              <Link
+                href="/auth/register"
+                className="border border-primary text-primary px-4 py-1.5 rounded-lg hover:bg-primary hover:text-white transition"
+                onClick={() => setIsOpen(false)}
+              >
+                Sign up
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }
