@@ -123,12 +123,12 @@ export default function SignUpForm() {
       </div>
       <TextInput
         name="first_name"
-        label="Nama pertama"
+        label="Nama Depan"
         placeholder="Masukkan nama pertama anda..."
       />
       <TextInput
         name="last_name"
-        label="Nama terakhir"
+        label="Nama Belakang"
         placeholder="Masukkan nama terakhir anda..."
       />
       <TextInput
