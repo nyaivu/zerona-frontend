@@ -13,7 +13,7 @@ const DashboardNavBar = () => {
     <nav className="sticky top-0 inset-x-0 flex flex-row justify-between items-center px-4 py-2 z-50 bg-background">
       <div className="font-medium font-serif">
         <Link href="/">
-          <p>KelasIn</p>
+          <p>Zerona</p>
         </Link>
       </div>
 

@@ -16,11 +16,10 @@ export default function Hero() {
         viewport={{ once: true }}
       >
         <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-          Selamat datang di <br />{" "}
-          <span className="text-primary">KelasIn</span>
+          Selamat datang di <br /> <span className="text-primary">Zerona</span>
         </h2>
         <p className="text-gray-600">
-          KelasIn merupakan sistem pendukung dalam pengelolaan pembelajaran
+          Zerona merupakan sistem pendukung dalam pengelolaan pembelajaran
           daring. Dirancang agar Mahasiswa dan Siswa dapat belajar secara
           efektif dan efisien di mana pun.
         </p>

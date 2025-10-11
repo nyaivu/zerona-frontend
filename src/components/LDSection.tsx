@@ -10,17 +10,20 @@ interface FAQ {
 
 const faqs: FAQ[] = [
   {
-    question: "Bagaimana cara mendaftar untuk menggunakan KelasIn?",
-    answer: "Anda dapat mendaftar melalui portal resmi KelasIn menggunakan akun Anda."
+    question: "Bagaimana cara mendaftar untuk menggunakan Zerona?",
+    answer:
+      "Anda dapat mendaftar melalui portal resmi Zerona menggunakan akun Anda.",
   },
   {
     question: "Apakah saya bisa mengakses E-learning dari smartphone?",
-    answer: "Ya, Anda dapat mengakses melalui browser"
+    answer: "Ya, Anda dapat mengakses melalui browser",
   },
   {
-    question: "Bagaimana jika mengalami kesulitan teknis saat menggunakan platform?",
-    answer: "Silakan hubungi tim dukungan teknis melalui email atau nomor kontak yang tersedia di bawah."
-  }
+    question:
+      "Bagaimana jika mengalami kesulitan teknis saat menggunakan platform?",
+    answer:
+      "Silakan hubungi tim dukungan teknis melalui email atau nomor kontak yang tersedia di bawah.",
+  },
 ];
 
 export default function LDSection() {
@@ -29,11 +32,14 @@ export default function LDSection() {
   // Variants untuk animasi global section
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 px-6 md:px-16 overflow-hidden" id="guide">
+    <section
+      className="relative bg-gradient-to-b from-gray-50 to-white py-20 px-6 md:px-16 overflow-hidden"
+      id="guide"
+    >
       <motion.div
         className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center"
         initial="hidden"
@@ -78,8 +84,9 @@ export default function LDSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            KelasIn dirancang agar kamu bisa belajar mandiri dengan sistem pembelajaran interaktif, 
-            akses materi kapan pun dan di mana pun, tanpa batas.
+            Zerona dirancang agar kamu bisa belajar mandiri dengan sistem
+            pembelajaran interaktif, akses materi kapan pun dan di mana pun,
+            tanpa batas.
           </motion.p>
 
           {/* FAQ List */}

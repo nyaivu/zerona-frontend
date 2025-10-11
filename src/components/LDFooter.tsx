@@ -45,7 +45,7 @@ export default function LDFooter() {
             LAYANAN TEKNIS
           </h3>
           <ul className="space-y-2 text-sm opacity-90">
-            <li>📧 kelasin@kelasin.ac.id</li>
+            <li>📧 Zerona@Zerona.ac.id</li>
             <li>📞 +62 833-444-5555</li>
           </ul>
         </motion.div>
@@ -92,7 +92,9 @@ export default function LDFooter() {
         transition={{ delay: 0.3, duration: 0.8 }}
         viewport={{ once: true }}
       >
-        © {new Date().getFullYear()} <span className="text-blue-300 font-semibold">KelasIn</span>. Semua Hak Dilindungi.
+        © {new Date().getFullYear()}{" "}
+        <span className="text-blue-300 font-semibold">Zerona</span>. Semua Hak
+        Dilindungi.
       </motion.div>
     </motion.footer>
   );

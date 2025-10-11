@@ -33,7 +33,7 @@ export default function Features() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        Kenapa Memilih <span className="text-blue-600">KelasIn?</span>
+        Kenapa Memilih <span className="text-blue-600">Zerona?</span>
       </motion.h2>
 
       {/* Grid Fitur */}

@@ -27,7 +27,7 @@ export default function LDNavbar() {
           whileHover={{ scale: 1.05 }}
           className="font-bold text-lg text-primary cursor-pointer"
         >
-          KelasIn
+          Zerona
         </motion.h1>
 
         {/* Menu desktop */}
