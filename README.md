@@ -1,10 +1,10 @@
 ---
 
-# Kelas.in - Frontend
+# Zerona- Frontend
 
 ## Deskripsi
 
-Kelas.in adalah sebuah platform pembelajaran online yang menghubungkan guru dan siswa. Repositori ini berisi kode untuk antarmuka pengguna (frontend) dari aplikasi Kelas.in, yang dirancang untuk memberikan pengalaman pengguna yang intuitif dan responsif.
+Zerona adalah sebuah platform pembelajaran online yang menghubungkan guru dan siswa. Repositori ini berisi kode untuk antarmuka pengguna (frontend) dari aplikasi Zerona, yang dirancang untuk memberikan pengalaman pengguna yang intuitif dan responsif.
 
 **Live Demo:** [Zerona.nyaivu.com](https://Zerona.nyaivu.com)
 
@@ -48,7 +48,7 @@ Untuk menjalankan proyek ini di lingkungan lokal Anda, ikuti langkah-langkah ber
 1.  **Clone repositori ini:**
 
     ```bash
-    git clone https://github.com/nyaivu/Zerona-frontend.git
+    git clone https://github.com/nyaivu/zerona-frontend.git
     ```
 
 2.  **Masuk ke direktori proyek:**
